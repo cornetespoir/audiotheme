@@ -1,0 +1,928 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <!-- favicon -->
+     <link rel="shortcut icon" href="{Favicon}" />
+     <!-- rss -->
+     <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+     <!-- title and description -->
+        <title>{Title}</title>
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        
+        <!-- options -->
+        
+        <meta name="color:background" content="#2f3235" />
+        <meta name="color:text" content="#fff" />
+        <meta name="color:footer" content="#2b2d2f" />
+        <meta name="color:footer text" content="#fff" />
+        <meta name="text:Google Font" content="Muli" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css'>
+<link href='//dl.dropbox.com/s/vpi3f9s7nhpe7v7/honeybee.css' rel='stylesheet'> 
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,700&family={text:Google Font}&display=swap" rel="stylesheet">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css'>
+   <script src="https://static.tumblr.com/5ojoydj/Kzyp56cvt/jquery-2.2.0.min.js"></script> 
+<script>
+    $(document).ready(function(){
+$(".slick-dots li, .slick-arrow").click(function () {
+$(".audio_player iframe").each(function() { 
+        var src= $(this).attr('src');
+        $(this).attr('src',src);  
+});
+});
+
+
+$('.audio_player iframe').load( function() {
+    $('{block:posts} {block:audio} .audio_player iframe.tumblr_audio_player_{PostID},{/block:audio}{/block:posts} .testingclass').each( function() {
+    $(this).contents().find("head")
+      .append($("<link href='//dl.dropbox.com/s/vpi3f9s7nhpe7v7/honeybee.css' rel='stylesheet'> <style type='text/css'> .progress {background: transparent!important; } .icon_pause { transform:translateX(-5px)!important}</style>"));
+    $(this).contents().find('body .track-no-id3').html("audio post");  
+      
+});
+
+});
+});
+
+
+</script>
+<!-- 
+
+-->
+<style>
+a {
+    color:{AccentColor};
+    text-decoration:none;
+}
+ body {
+     font-family:{text:Google Font};
+     display:flex;
+     flex-wrap:wrap;
+     overflow-x:hidden;
+     align-items:center;
+     height:100vh;
+     justify-content:center;
+background:{color:background};
+color:{color:text};
+ }
+ 
+ .flex {
+     display:flex;
+     flex-wrap:wrap;
+ }
+#albumart img {
+	width: calc(100% - 20%);
+	padding: 10%;
+	border-width: 0px;
+	transition: .6s;
+}
+
+
+.infobox {
+    text-align:left;
+    width:calc(100% - 150px);
+}
+
+.caption {
+    text-align:left;
+    padding:40px;
+}
+
+
+.artist,
+.album,
+.trackname, .playcount {
+	width: 90%;
+	margin: auto;
+	padding:4px 10px;
+	text-align:left;
+}
+
+.slick-track {
+        display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.infobox, .audiop img {
+    z-index:2;
+}
+
+.audiop img {
+    width:150px!important;
+}
+
+.photopost .audiop .photo {
+    width:auto!important;
+    max-height:200px;
+}
+
+.players {
+    position:absolute;
+    width:50px;
+    height:50px;
+    margin-left:48px;
+    border-radius:100%;
+    overflow:hidden;
+    flex-wrap:wrap;
+       transform:scale(1.14);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:999999;
+}
+
+.players iframe {
+   padding-top:14px;
+   transform:scale(1.2);
+   padding-left:10px;
+}
+
+.audiop {
+	margin: auto;
+	width:100%;
+	display:flex;
+	align-items:center;
+	color:{color:text};
+    border-radius:4px;
+    overflow:hidden;
+	position: relative;
+}
+.audiop:before {
+    width:110%;
+    height:110%;
+    z-index:0;
+    position:absolute;
+    content:'';
+    filter:blur(10px);
+    opacity:.98;
+    background:inherit;
+}
+
+.audiop:after {
+    content:'';
+    width:100%;
+    height:100%;
+    position:absolute;
+    background:black;
+    z-index:1;
+    opacity:.14;
+    
+}
+.tumblr_video_container {
+    max-width:100%;
+    overflow:hidden;
+    {block:indexpage}
+     max-height:200px;
+    {/block:indexpage}
+}
+
+
+
+.video iframe, .tumblr_video_container iframe {
+    max-width:100%!important;
+    max-height:100%;
+}
+
+
+.audio_player iframe {
+    width:calc(100% - 0px);
+    background:#f2f2f2;
+    height:60px;
+    margin: 0 auto -10px;
+ 
+}
+
+.slide-container {
+  margin: auto;
+  width: 600px;
+  text-align: center;
+}
+
+.pagination {
+    margin:50px auto;
+    width:100%;
+    text-align:center;
+}
+
+.pagination a {
+    padding:10px;
+    margin:0 20px;
+    background:rgba(0,0,0,.08);
+    border-radius:4px;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.slick-prev {
+  left: -70px;
+
+  top:120px;
+  z-index: 999;
+}
+
+.slick-next {
+  right: -70px;
+  top:120px;
+  z-index: 999;
+}
+
+.slick-next:before {
+      color:{accentcolor};
+    content: '\eada';
+font-family:honeybee !important;
+}
+
+.slick-prev:before {
+    content: '\eada';
+  color:{accentcolor};
+font-family:honeybee !important;
+}
+
+.slick-prev {
+    transform: translateY(-8px) scaleX(-1)!important;
+}
+
+
+.spotify_audio_player {
+    height: 80px!important;
+    width: 58%;
+    transform: scale(1.68) translateY(20px) translateX(0px);
+}
+
+
+.slick-dots li {
+    display:block;
+    opacity:.6;
+    padding:14px;
+       counter-increment: menu;
+    text-align:left;
+    transition:.2s;
+    width:auto!Important;
+    position:relative!Important;
+    
+}
+
+   .slick-dots li:before {
+    content: "0" counter(menu) "   ";
+opacity:.86;
+color:{AccentColor};
+margin:0 10px  0 0;
+    transform:translate(-30px, 0);
+    position:relative;
+    
+ 
+
+}
+
+
+.slick-dots li.slick-active {
+    opacity:1;
+    transition:.2s;
+    border-radius:4px;
+    background:rgba(0,0,0,.08);
+    
+}
+.slick-dots li button {
+    width:auto!Important;
+}
+.slick-dotted.slick-slider {
+    margin-top:100px;
+    margin-bottom:auto!Important;
+}
+
+.slick-dots {
+   position:relative!Important;
+   margin:30px auto;
+}
+.photosets .photo {
+    display:none;
+}
+.photosets .photo:first-of-type {
+    display:block;
+}
+
+.reblog-header  {
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    margin:20px 0 10px 0;
+}
+
+.original-reblog .reblog-header {
+    margin-top:0px;
+}
+
+.reblog-header img {
+    width:20px!important;
+    border-radius:2px;
+    margin:0 6px 0 0;
+}
+
+.posts {
+    cursor: -webkit-grab; cursor: grab;
+    text-align:left!Important;
+    position:relative;
+}
+
+.posts:active {
+   cursor: grabbing;
+}
+
+{block:indexpage}
+.textpost {
+    height:180px!important;
+     background:#222;
+    overflow:hidden;
+    padding:20px 0;
+    text-align:left;
+    position:relative;
+}
+.posts a {
+    color:{color:text};
+}
+.textpost h1 {
+    padding:10px 0;
+}
+.reblog-list {
+        max-height:170px;
+            overflow: hidden;
+}
+.textpost .caption, .textpost figcaption, .textpost .reblogs {
+padding: 0px 40px;
+    max-height:170px;
+    overflow: hidden;
+}
+
+.textpost .cover {
+    content:'';
+    bottom:30px;
+    width:100%;
+    position:absolute;
+    height:60px;
+    background:linear-gradient(to top, #222, transparent);
+}
+
+.photopost .reblogs, .photosetpost .reblogs {
+    display:none;
+}
+
+.photopost .original-reblog, .photosetpost .original-reblog {
+    display:block;
+}
+
+ .th-eye-o {
+    display: flex;
+    background: white;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    opacity:0;
+    width: 30px;
+    height: 30px;
+    color: black;
+    transform:translateY(-10px);
+    left: 10px;
+    top: 10px;
+    transition:.4s;
+    box-shadow: 2px 2px 20px rgba(0,0,0,.2);
+    position: absolute;
+}
+
+.posts:hover .th-eye-o {
+     transform:translateY(0px);
+    opacity:1;
+}
+.audiopost .th-eye-o {
+    right:10px;
+    z-index:9999999;
+}
+
+.chat li {
+    padding:10px;
+    width:auto;
+}
+
+.chat li:nth-of-type(2n + 0) {
+    background:rgba(0,0,0,.2);
+    
+}
+{/block:indexpage}
+.answerpost .caption, .quotepost .caption, .link, .chat, ol.notes {
+    background:rgba(0,0,0,.4);
+    {block:permalinkpage}
+    background:white;
+    color:black;
+    {/block:permalinkpage}
+    border-radius:4px;
+    margin:0 0 20px 0;
+    text-align:left;
+}
+ol.notes {
+text-align:center;
+padding:20px;
+}
+ol.notes li {
+width:50px;
+margin:10px;
+display:inline-block;
+border-radius:4px;
+height:50px;
+overflow:hidden;
+}
+ol.notes img {
+width:50px;
+height:50px;
+}
+
+
+.textpost, .photopost .caption, .quotepost {
+      {block:permalinkpage}
+    background:white;
+    color:black;
+    border-radius:4px;
+    padding:40px;
+    {/block:permalinkpage}
+}
+.th-question-o {
+    font-size:1.2em;
+    margin:10px auto;
+}
+
+.answerpost a {
+    color:{color:text};
+        {block:permalinkpage}
+    color:black;
+    {/block:permalinkpage}
+}
+{block:permalinkpage}
+.posts{
+margin:100px auto;
+}
+
+.photopost .audiop {
+    display:block!important;
+    height:auto!important;
+    background:white!important;
+    color:black!important;
+}
+
+.photopost .audiop:before {
+    display:none;
+}
+
+.photopost .infobox {
+    width:100%;
+}
+
+.photopost .audiop img {
+    max-width:100%;
+    display:block!Important;
+    max-height:1000px!important;
+}
+{/block:permalinkpage}
+
+footer {
+    justify-content:space-around;
+    margin:40px auto 0 0;
+    width:calc(100% - 80px);
+    padding:40px 40px;
+    background:{color:footer};
+    
+}
+
+.feet {
+    max-width:29%;
+    font-size:.9em;
+    color:rgba({RGBcolor:footer text},.6);
+}
+
+.feet b, .feet .th{
+     color:rgba({RGBcolor:footer text},.82);
+     font-size:1.12em;
+    
+}
+
+.feet a {
+    background:rgba({RGBAccentColor},.2);
+    padding:2px 6px;
+    border-radius:2px;
+    line-height:200%;
+    margin:10px 20px 10px 0;
+}
+.feet .th {
+    margin-right:10px;
+padding:6px;
+background:rgba({RGBAccentColor},.4);
+    border-radius:8px;
+}
+
+footer img {
+    width:60px;
+    border-radius:30px;
+}
+
+.bottom {
+    width:100vw;
+        border-bottom:4px solid {accentcolor};
+    background:{color:footer};
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    border-top:1px solid rgba(0,0,0,.2);
+    padding:20px 0 20px 0;
+}
+
+#egg{
+    margin-left:6px;
+   display:inline-block;
+    width: 14px;
+    height: 18px;
+    background-color: {accentcolor};
+    -webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    z-index: 4;
+    transform: scale(1.02);
+}
+</style>
+
+</head>
+<body>
+
+
+
+
+<div class="slide-container slider">
+{block:Posts}
+
+ <!-- {block:NoRebloggedFrom}
+{block:RebloggedFrom}{ReblogParentName}{/block:RebloggedFrom}
+{/block:NoRebloggedFrom} -->
+{block:ContentSource}<!-- {SourceURL}
+{block:SourceLogo}<img src="{BlackLogoURL}"width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ContentSource}
+
+<div class="{posttype}post posts" data-title="{block:audio}{block:trackname}{trackname} {block:trackname} by {block:artist} {Artist}{/block:artist}  {/block:audio}  {block:text} {block:rebloggedfrom}Text post by {reblogrootname}{/block:rebloggedfrom} {block:notreblog}Text post by {name}{/block:notreblog}{/block:text} {block:photo} {block:rebloggedfrom}Photo from {reblogrootname}{/block:rebloggedfrom} {block:notreblog}Photo from {name}{/block:notreblog} {/block:photo} {block:photoset} {block:rebloggedfrom}Photos from {reblogrootname}{/block:rebloggedfrom} {block:notreblog}Photos from {name}{/block:notreblog} {/block:photoset} {block:Answer} A question by {Asker}{/block:Answer} {block:Quote}A quote post{/block:Quote} {block:Link} A link from {Host}{/block:Link} {block:chat}A conversation from {block:rebloggedfrom}{reblogrootname}{/block:rebloggedfrom} {block:notreblog}{name}{/block:notreblog}{/block:chat} {block:Video}Video from {block:rebloggedfrom}{reblogrootname}{/block:rebloggedfrom} {block:notreblog}{name}{/block:notreblog}{/block:Video}">
+
+   {block:Text}
+   
+   {block:indexpage}
+
+  
+
+           <a href="{permalink}" style="z-index:999999999">  <span class="th th-eye-o"></span>
+            {/block:indexpage}
+              <div class="cover"></div>
+            {/block:indexpage}
+            {block:Notreblog}
+          
+            <div class="caption">
+               {block:Title}
+            <h1>{Title}</h1>
+            {/block:Title}
+                {Body}
+            </div>
+            {/block:Notreblog}
+            
+           {block:Rebloggedfrom}
+        
+            <div class="reblog-list">
+            {block:Reblogs}
+            <div class="reblogs {block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
+                {block:Title}
+            <h1>{Title}</h1>
+            {/block:Title}
+                <div class="reblog-header">
+                    {block:isactive}
+             
+                       <a href="{permalink}">   <img src="{PortraitURL-64}"></a>
+                    <a href="{permalink}">  {username}</a>
+                    {/block:isactive}
+                    {block:isdeactivated}
+                     <a href="{permalink}">   <img src="{PortraitURL-64}"></a>
+                    <a href="{permalink}">  {username}</a>
+                    {/block:isdeactivated}
+                </div>
+                 <div class="reblog-content">
+                        {Body}
+                     </div>
+            </div>
+            {/block:Reblogs}
+            </div>
+            {/block:RebloggedFrom}
+               {block:indexpage}
+        </a>
+            {/block:indexpage}
+            {/block:Text}
+   {block:audio}
+     {block:AudioEmbed} {AudioEmbed}{/block:AudioEmbed}
+       {block:AudioPlayer}
+       {block:indexpage}
+         <a href="{permalink}" style="z-index:999999999">  <span class="th th-eye-o"></span>{/block:indexpage}
+            <div class="audiop" {block:albumart}style="background:url({AlbumArtURL}); background-size:cover;"{/block:albumart}>
+             <div class="players">
+               {AudioPlayer}
+            </div>
+            {block:albumart}
+            <img src="{AlbumArtURL}" alt="Album art for {block:trackname}{Trackname}{/block:trackname}">
+            {/block:albumart}
+            <div class="infobox">{block:TrackName}
+               <div class="trackname slide-title"> 
+                  Track: {TrackName}
+                 
+               </div>  {/block:TrackName} 
+               <div class="artist">
+                  {block:Artist}
+                  Artist: {Artist}
+                  {/block:Artist} 
+               </div>
+               <div class="album">
+                  {block:Album}
+                  Album: {Album}
+                  {/block:Album}
+               </div>
+               <div class="playcount">
+                 {block:PlayCount} {Playcountwithlabel}{/block:PlayCount}
+               </div>
+            </div>
+            </div>
+          
+           {block:indexpage}</a>
+           {/block:indexpage}
+            {/block:AudioPlayer}
+          
+            {/block:audio}
+         {block:Photoset}
+          
+               <div class="audiop photosets" style="background:url({PhotoURL-highRes}); background-size:cover;">
+           {block:indexpage}
+
+           <a href="{permalink}" style="z-index:999999999">  <span class="th th-eye-o"></span>
+         {block:Photos}<img src="{PhotoURL-HighRes}" class="photo">{/block:Photos}
+            {/block:indexpage}
+         
+{block:permalinkpage}
+{Photoset}
+{/block:permalinkpage}
+            <div class="infobox">
+             {block:Caption}
+            <div class="caption">
+            {block:notreblog}
+            {Caption}
+            {/block:notreblog}
+            {block:Rebloggedfrom}
+            <div class="reblog-list">
+            {block:Reblogs}
+            <div class="reblogs {block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
+                <div class="reblog-header">
+                    {block:isactive}
+                  <a href="{permalink}">   <img src="{PortraitURL-64}"></a>
+                    <a href="{permalink}">  {username}</a>
+                    {/block:isactive}
+                    {block:isdeactivated}
+                       <a href="{permalink}">   <img src="{PortraitURL-64}"></a>
+                    <a href="{permalink}">  {username}</a>
+                    {/block:isdeactivated}
+                </div>
+                 <div class="reblog-content">
+                        {Body}
+                     </div>
+            </div>
+            {/block:Reblogs}
+            </div>
+            {/block:RebloggedFrom}
+            </div>
+            {/block:Caption}
+            </div>
+                    {block:indexpage}
+
+           </a>
+        
+            {/block:indexpage}
+            </div>
+     
+            {/block:photoset}
+            {block:photo}
+              <div class="audiop" style="background:url({PhotoURL-highRes}); background-size:cover;">
+              {block:indexpage}
+              <a href="{permalink}" style="z-index:9999999999">
+              <span class="th th-eye-o"></span>
+                  {/block:indexpage}
+           
+        
+            <img src="{PhotoURL-HighRes}" class="photo">
+
+            <div class="infobox">
+             {block:Caption}
+            <div class="caption">
+            {block:notreblog}
+            {Caption}
+            {/block:notreblog}
+            {block:Rebloggedfrom}
+            <div class="reblog-list">
+            {block:Reblogs}
+            <div class="reblogs {block:isOriginalEntry}original-reblog{/block:isOriginalEntry}">
+                <div class="reblog-header">
+                    {block:isactive}
+                  <a href="{permalink}">   <img src="{PortraitURL-64}"></a>
+                    <a href="{permalink}">  {username}</a>
+                    {/block:isactive}
+                    {block:isdeactivated}
+                       <a href="{permalink}">   <img src="{PortraitURL-64}"></a>
+                    <a href="{permalink}">  {username}</a>
+                    {/block:isdeactivated}
+                </div>
+                 <div class="reblog-content">
+                        {Body}
+                     </div>
+            </div>
+            {/block:Reblogs}
+            </div>
+            {/block:RebloggedFrom}
+            </div>
+            {/block:Caption}
+            </div>
+            {block:indexpage}
+            </a>
+            {/block:indexpage}
+            </div>
+            {/block:photo}
+            
+            {block:answer}
+            <a href="{permalink}">
+            <div class="caption">
+         <span class="th th-question-o"></span> {Asker}: 
+            <br>
+                {Question}
+            </div></a>
+            {block:permalinkpage}
+            <div class="caption">
+                {Answer}
+            </div>
+            {/block:permalinkpage}
+            {/block:answer}
+            
+            {block:Quote}
+              {block:indexpage}
+
+  
+
+           <a href="{permalink}" style="z-index:999999999">  <span class="th th-eye-o"></span>
+            {/block:indexpage}
+            <div class="caption">
+            <div class="quote">
+                "{Quote}"
+            </div>
+            <div class="source">
+                -{Source}
+            </div>
+            </div>
+              {block:indexpage}
+</a>
+            {/block:indexpage}
+            {/block:Quote}
+            
+                        {block:Chat}
+                         {block:indexpage}
+
+  
+
+           <a href="{permalink}" style="z-index:999999999">  <span class="th th-eye-o"></span>
+            {/block:indexpage}
+            <ul class="chat">
+                {block:Lines}
+                <li>{block:Label}{Label}{/block:Label} {Line}</li>
+                {/block:Lines}
+            </ul>
+             {block:indexpage}
+</a>
+            {/block:indexpage}
+            {/block:Chat}
+            
+            <!--Link posts-->
+            {block:link}
+             {block:indexpage}
+
+  
+
+           <a href="{permalink}" style="z-index:999999999">  <span class="th th-eye-o"></span>
+            {/block:indexpage}
+            <div class="link">
+                <a href="{URL}"><span class="fa fa-link" aria-hidden="true"></span> {Name}</a>
+            </div>
+             {block:indexpage}
+</a>
+            {/block:indexpage}
+            {/block:link}
+            
+            <!-- video posts -->
+            {block:Video}
+            <div class="video">
+            {Video-700}
+            </div>
+            {/block:Video}
+            
+</div>
+
+{PostNotes-64}
+{/block:Posts}
+
+
+
+
+
+
+
+</div> 
+  <!-- pagination -->
+            {block:Pagination}
+            <div class="pagination">
+                {block:previouspage}
+                <a href="{previouspage}">Previous Playlist</a>
+                {/block:previouspage}
+                {block:nextpage}
+                <a href="{nextpage}">Next Playlist</a>
+                {/block:nextpage}
+            </div>
+            {/block:pagination}
+
+<footer class="flex centered">
+  <div class="feet">
+      <span class="th th-id-card-2"></span> <b>{name}</b> <br> <br>
+      {Title} <br><br>
+      {Description}
+  </div>
+  
+    <div class="feet">
+      <span class="th th-location-1"></span> <b>Navigation</b> <br><br>
+      <a href="/">home</a>
+      {block:asksenabled}
+      <a href="/ask">ask</a>
+      {/block:asksenabled}
+      {block:submissionsenabled}
+      <a href="/submit">submit</a>
+      {/block:submissionsenabled}
+      <a href="/archive">archive</a>
+  </div>
+          {block:haspages} 
+    <div class="feet">
+         <span class="th th-list"></span> <b>Pages</b> <br><br>
+
+         {block:pages}
+         <a href="{URL}">{label}</a>
+         {/block:pages}
+
+  </div>
+           {/block:haspages}
+
+</footer><a href="https://egg.design">
+<div class="bottom flex">
+    audio theme by <div id="egg"></div>
+</div>
+</a>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js'></script>
+{block:indexpage}
+<script>
+(function () {
+let dotTitles = []
+$('.slider .posts').each(function(i) {
+	dotTitles.push($(this).data('title'));
+});
+
+const paging = function(slick,index) {
+  return '<span>' + dotTitles[index] + '</span>';
+}
+$(".slider").slick({
+
+            arrows: true,
+    dots: true,
+        customPaging: paging,
+
+    //responsive: [{ 
+    //    breakpoint: 200,
+    //    settings: {
+    ///        d
+    //    } 
+    //}]
+});
+
+
+
+})();
+//# sourceURL=pen.js
+    </script>
+    {/block:indexpage}
+</body>
+</html>
